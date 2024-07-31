@@ -1,4 +1,5 @@
 function renderResult(arr) {
+    
     const str = arr.map((item) => {
         return `<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <th scope="row"
@@ -89,8 +90,8 @@ async function test() {
     /* window.chrome */
 
     try {
-        if ((window.chrome?.csi()?.onloadT ?? false) && (window.chrome?.app?.InstallState ?? false)) result.push({ name: 'window.chrome Test', status: false })
-        else result.push({ name: 'window.chrome Test', status: true })
+        if ((window.chrome?.csi()?.onloadT ?? false) && (window.chrome?.app?.InstallState ?? false)) result.push({ name: 'window.chrome Test', status: true })
+        else result.push({ name: 'window.chrome Test', status: false })
     } catch (e) {
         result.push({ name: 'window.chrome Test', status: false, message: e.message })
     }
@@ -159,7 +160,6 @@ async function test() {
 
         devtoolsDetector.addListener(function (isOpen) {
             devtoolsStatus = isOpen
-
         });
         devtoolsDetector.launch();
         await new Promise(resolve => setTimeout(resolve, 1))
