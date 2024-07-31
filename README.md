@@ -3,3 +3,6 @@ This repo will host the latest Javascript bot detection methods. Please report a
 
 [DEMO](https://zfcsoftware.github.io/selenium-detector/)
 
+Test result using puppeteer-extra-plugin-stealth:
+
+https://raw.githubusercontent.com/zfcsoftware/selenium-detector/main/test/screenshot.png
