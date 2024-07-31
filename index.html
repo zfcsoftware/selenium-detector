@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selenium Detector</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+
+<body>
+    <div class="flex justify-center">
+        <div id="root" class="mt-2">
+            <div class="total flex justify-between mb-2">
+                <p>Successful: 0</p>
+                <p>Failed: 0</p>
+            </div>
+
+            <div class="relative overflow-x-auto">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                Test Subject
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Status
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="response-table">
+
+                        <!-- <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                            <th scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                puppeteer-extra-plugin-stealth - Test 1
+                            </th>
+                            <th scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                Failed ❌
+                            </th>
+                        </tr>
+
+                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                            <th scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                puppeteer-extra-plugin-stealth - Test 1
+                            </th>
+                            <th scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                Successful ✅
+                            </th>
+                        </tr> -->
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    <script src="/devtools-detector.js"></script>
+    <script src="/script.js"></script>
+</body>
+
+</html>

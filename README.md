@@ -1,0 +1,2 @@
+# Selenium Detector
+This repo will host the latest Javascript bot detection methods. Please report any methods you know of that are not used in this repo by opening an issue. I've added some features due to time constraints, more controls will be added over time.
