@@ -5,11 +5,12 @@ puppeteer.use(StealthPlugin())
 
 
 puppeteer.launch({
-    headless: "new",
-    args: ['--no-sandbox', '--disable-setuid-sandbox', "--disable-blink-features=AutomationControlled", '--disable-infobars']
+    headless: false,
+    args: ['--no-sandbox', '--disable-setuid-sandbox', "--disable-blink-features=AutomationControlled", '--disable-infobars',"--start-maximized"]
 }).then(async browser => {
     const page = await browser.newPage()
-    await page.goto('https://zfcsoftware.github.io/selenium-detector/')
-    await page.screenshot({ path: 'screenshot.png', fullPage: true })
-    await browser.close()
+    await page.setViewport({ width: 1920, height: 1080 })
+    // await page.goto('https://zfcsoftware.github.io/selenium-detector/')
+    // await page.screenshot({ path: 'screenshot.png', fullPage: true })
+    // await browser.close()
 })

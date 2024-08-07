@@ -1,5 +1,5 @@
 function renderResult(arr) {
-    
+
     const str = arr.map((item) => {
         return `<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <th scope="row"
@@ -81,7 +81,7 @@ async function test() {
     /* navigator.plugins Test */
 
     try {
-        if (navigator.plugins.length === 0) result.push({ name: 'navigator.plugins Test', status: false })
+        if (navigator.plugins == "") result.push({ name: 'navigator.plugins Test', status: false })
         else result.push({ name: 'navigator.plugins Test', status: true })
     } catch (e) {
         result.push({ name: 'navigator.plugins Test', status: false, message: e.message })
@@ -90,9 +90,10 @@ async function test() {
     /* window.chrome */
 
     try {
-        if ((window.chrome?.csi()?.onloadT ?? false) && (window.chrome?.app?.InstallState ?? false)) result.push({ name: 'window.chrome Test', status: true })
+        if (detectBrowser() == 'Chrome' && (window.chrome?.app ?? false)) result.push({ name: 'window.chrome Test', status: true })
         else result.push({ name: 'window.chrome Test', status: false })
     } catch (e) {
+        confirm(e.message)
         result.push({ name: 'window.chrome Test', status: false, message: e.message })
     }
 
@@ -117,7 +118,7 @@ async function test() {
 
     /* navigator.languages Test http://antoinevastel.com/bot%20detection/2017/08/05/detect-chrome-headless.html */
     try {
-        if (navigator.languages == "" || navigator.languages.length == 0) result.push({ name: 'navigator.languages Test', status: false })
+        if (navigator.languages == "") result.push({ name: 'navigator.languages Test', status: false })
         else result.push({ name: 'navigator.languages Test', status: true })
     } catch (e) {
         result.push({ name: 'navigator.languages Test', status: false, message: e.message })
@@ -145,7 +146,7 @@ async function test() {
 
 
     try {
-        if (window.screen.height == window.screen.availHeight) result.push({ name: 'window.screen.availHeight Test', status: false })
+        if (window.screen?.height && (window.screen.height == window.screen.availHeight)) result.push({ name: 'window.screen.availHeight Test', status: false })
         else result.push({ name: 'window.screen.availHeight Test', status: true })
     } catch (e) {
         result.push({ name: 'window.screen.availHeight Test', status: false, message: e.message })
@@ -171,7 +172,6 @@ async function test() {
     }
 
 
-        
 
 
 
@@ -193,6 +193,27 @@ async function test() {
 
 
 
+
+}
+
+
+function detectBrowser() {
+    if ((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1) {
+        return 'Opera';
+    } else if (navigator.userAgent.indexOf("Edg") != -1) {
+        return 'Edge';
+    } else if (navigator.userAgent.indexOf("Chrome") != -1) {
+        return 'Chrome';
+    } else if (navigator.userAgent.indexOf("Safari") != -1) {
+        return 'Safari';
+    } else if (navigator.userAgent.indexOf("Firefox") != -1) {
+        return 'Firefox';
+    } else if ((navigator.userAgent.indexOf("MSIE") != -1) || (!!document.documentMode == true)) //IF IE > 10
+    {
+        return 'IE';
+    } else {
+        return 'unknown';
+    }
 }
 
 function imageTest() {
